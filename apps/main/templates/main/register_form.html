@@ -1,0 +1,22 @@
+{% if messages %}
+<p class='text-danger'>
+{% for message in messages %}
+    {% if 'register' in message.tags %} {{ message }} {% endif %} 
+{% endfor %}
+</p>
+{% endif %}
+<form action='/register_form' method='post'>
+{% csrf_token %}
+    <label class='col p-0 m-0'>Username</label>
+    <small class='text-secondary'>Must be at least 3 characters long.</small>
+    <input id='reg_username' type='text' name='reg_username' value='{{ request.session.reg_username }}' class='col mb-3 p-2'>
+    <label class='col p-0 m-0'>Email Address</label>
+    <input id='reg_email' type='text' name='reg_email' placeholder='example@example.com' value='{{ request.session.reg_email }}' class='col mb-3 p-2'>
+    <label class='col p-0 m-0'>Password</label>
+    <small class='text-secondary'>Must be at least 8 characters long.</small>
+    <input id='reg_password' type='password' name='reg_password' value='' class='col mb-3 p-2'>
+    <label class='col p-0 m-0'>Confirm Password</label>
+    <input id='confirm_password' type='password' name='confirm_password' value='' class='col mb-3 p-2'>
+    <p id='reg_errors' class='text-danger text-center'></p>
+    <button id='check_registration' class='btn pink col p-4 mb-3'>Sign Up for <i class="fab fa-github pink"></i> GirlHub </button>
+</form>

@@ -1,0 +1,20 @@
+{% for item in feed %}
+    {% if item.id == 2 %}
+    <div class='mb-1'>
+        {{ followee }} asked a 
+        <a href='/question/{{ item.event }}'>question</a>
+        <small>on {{ item.created_at | date:"m/d/Y" }}.</small>
+    </div>
+    {% elif item.id == 3 %}
+    <div class='mb-1'>
+        {{ followee }} answered a
+        <a href='/question/{{ item.event }}' class='text-success'>question</a>
+        <small>on {{ item.created_at | date:"m/d/Y" }}.</small>
+    </div>
+    {% elif item.id == 1 %}
+    <div class='mb-1'>
+        {{ followee }} started following
+        <a href='/profile/{{ item.event }}' class='pink'>{{ item.event }}</a>.
+    </div>
+    {% endif %}
+{% endfor %}

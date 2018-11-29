@@ -1,0 +1,8 @@
+<form action='/search_question' method='post'>
+    {% csrf_token %}
+    <div class='row m-0 p-0'>
+        <input type='text' id='search' name='word' class='col p-2 mr-2' placeholder="🔍 Search">
+        <!-- <button class='btn bg-light col-sm-3'>Search</button> -->
+    </div>
+</form>
+<div id='browse_results' class='my-3'></div>

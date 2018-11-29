@@ -1,0 +1,20 @@
+<h5 class='text-secondary mb-3'>{{ profile.username }}'s Questions</h5>
+{% for question in questions %}
+<div class='mb-3 border shadow-sm bg-white'>
+    <div class='row m-0 p-0 border-bottom'>
+        <div class='col px-3 py-2'>{{ question.question }}</div>
+        <div class='col px-3 py-2 text-right'>
+            <div class='text-right'>{{ question.created_at | date:"m/d/Y" }}</div>
+        </div>
+    </div>
+    <pre><div class='col m-0 px-3 py-2 bg-grey'>{{ question.code }}</div></pre>
+    <div class='row m-0 px-3 py-2'>
+        <form action='/new_response/{{ question.id }}' method='post'>
+            {% csrf_token %}
+            <button class='btn-clear' id='respond' ref='{{ question.id }}'><i class="far fa-comment-dots"></i> Answer</button>
+        </form>
+        <a href='/question/{{ question.id }}' class='mx-2 text-dark'><i class="far fa-newspaper"></i> Responses</a>
+    </div>
+    <div id='{{ question.id }}'></div>
+</div>
+{% endfor %}

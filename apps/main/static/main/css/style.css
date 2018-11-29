@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+#visual {
+    height: 80vh;
+}
+
+#girlhub {
+    color: #777;
+    border-right: 1px solid #777;
+    padding-right: 7px;
+    display: inline;
+}
+
+#cat {
+    width: 40vw;
+
+}
+
+nav {
+    background: black;
+}
+
+.pink {
+   color: #ff98d3;
+}
+
+#log {
+    height: 80vh;
+    background: url('https://fc05.deviantart.net/fs39/f/2008/340/3/9/Black_Tech_by_monkeymagico.png');
+}
+
+.parallax { 
+    background-image: url("https://fc05.deviantart.net/fs39/f/2008/340/3/9/Black_Tech_by_monkeymagico.png");
+    height: 100%; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.font-1 {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.round {
+    border-radius: 5px;
+}
+
+.btn-clear {
+    background: none;
+    border: none;
+    border-style: none;
+}
+
+.height-50 {
+    height: 50px;
+}
+
+.height-100 {
+    height: 100px;
+}
+
+.height-400 {
+    height: 400px;
+}
+
+.bg-grey {
+    background: #c3d1dc;
+}
+
+.bg-black {
+    background: black;
+}
+
+.bg-pink {
+    background: #ff98d3;
+}
+
+.indent{
+    text-indent: -2em;
+}
+
+div#icon {
+    font-size: 108px;
+}
+
+.font-size-1 {
+    font-size: 20px;
+}
+
+.hover-1 {
+    background: white;
+    color: black;
+}
+
+.btn-square {
+    height: 150px;
+    width: 150px;
+}
+
+textarea {
+    border: none;
+}
+
+pre {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,sans-serif, "Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-wrap;       
+    white-space: -moz-pre-wrap; 
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}

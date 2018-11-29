@@ -1,0 +1,4 @@
+<h5 class='text-secondary mb-3'>{{profile.username }} is Following</h5>
+{% for followship in followees %}
+<a href='/profile/{{ followship.followee.username }}' class='px-3 py-2 d-block text-dark bg-white mb-1 border'><b><i class="fas fa-user-circle"></i> {{ followship.followee.username }}</b></a>
+{% endfor %}

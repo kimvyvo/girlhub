@@ -1,0 +1,16 @@
+{% if messages %}
+<p class='text-danger'>
+{% for message in messages %}
+    {% if 'login' in message.tags %} {{ message }} {% endif %} 
+{% endfor %}
+</p>
+{% endif %}
+<form action='/login_form' method='post'>
+{% csrf_token %}
+    <label class='col p-0 m-0'>Username</label>
+    <input id='log_username' type='text' name='username' value='{{ request.session.username }}' class='col mb-3 p-2'>
+    <label class='col p-0 m-0'>Password</label>
+    <input id='log_password' type='password' name='password' value='' class='col mb-3 p-2'>
+    <p id='log_errors' class='text-danger text-center'></p>
+    <button id='check_login' class='btn pink col p-4 mb-3'><i class="fab fa-github pink"></i> Sign In</button>
+</form>

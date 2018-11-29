@@ -1,0 +1,14 @@
+<hr>
+<h6 class='col-sm-9 mx-auto p-0 text-secondary'>New Question</h6>
+<hr>
+<div class='col-sm-9 mx-auto p-0'>
+    <form action='/question_form' method='post'>
+        {% csrf_token %}
+        <label class='col px-0'>Your Question:</label>
+        <div id='new_question_errors' class='text-danger'></div>
+        <textarea id='question_input' name='question' class='col mb-3 p-2 bg-light border height-100' value='{{ request.session.question }}'></textarea>
+        <label class='col px-0'>Your Code:</label>
+        <textarea id='textbox' name='question_code' class='col mb-3 p-2 bg-grey border height-400'value='{{ request.session.question_code }}'></textarea>
+        <button class='col p-3 btn text-info border' id='check_question'>Submit Question</button>
+    </form>
+</div>

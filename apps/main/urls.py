@@ -1,0 +1,30 @@
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.index),
+    url(r'^register$', views.register),
+    url(r'^register_form$', views.register_form),
+    url(r'^login$', views.login),
+    url(r'^login_form$', views.login_form),
+    url(r'^home$', views.home),
+    url(r'^new_question$', views.new_question),
+    url(r'^question_form$', views.question_form),
+    url(r'^my_questions', views.my_questions),
+    url(r'^new_response/(?P<id>\d+)$', views.new_response),
+    url(r'^response_form', views.response_form),
+    url(r'^question/(?P<id>\d+)$', views.question),
+    url(r'^my_responses$', views.my_responses),
+    url(r'^question/delete$', views.delete_question),
+    url(r'^response/delete$', views.delete_response),
+    url(r'^profile/(?P<username>\w+)$', views.profile),
+    url(r'^resume$', views.resume),
+    url(r'^browse$', views.browse),
+    url(r'^searched_questions/(?P<word>\S+)$', views.searched_questions),
+    url(r'^search_bar$', views.search_bar),
+    url(r'^user_questions/(?P<username>\w+)$', views.user_questions),
+    url(r'^user_responses/(?P<username>\w+)$', views.user_responses),
+    url(r'^user_following/(?P<username>\w+)$', views.user_following),
+    url(r'^follow$', views.follow),
+    url(r'^logout$', views.logout),
+]

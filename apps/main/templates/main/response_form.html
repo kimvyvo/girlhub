@@ -1,0 +1,10 @@
+<form action='/response_form' method='post' id='new_response'>
+    {% csrf_token %}
+    <textarea id='response_input' name='response' class='col mb-3 p-2 border height-100' placeholder="Your response:"></textarea>
+    <textarea id='textbox' name='response_code' class='col p-2 bg-grey border height-400' placeholder="// Code"></textarea>
+    <input type='hidden' name='question_id' value='{{ question.id }}'>
+    <div id='new_response_errors' ref='{{ question.id }}' class='text-danger text-center'></div>
+    <div class='px-3 py-2 text-right bg-white border'>
+        <button class='btn-clear mx-2' id='check_response' ref='{{ question.id }}'><i class="fas fa-edit"></i> Post</button>
+    </div>
+</form>

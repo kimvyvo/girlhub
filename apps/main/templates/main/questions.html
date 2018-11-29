@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <title>GirlHub</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Uniting girls through coding!" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="{% static 'main/js/script.js' %}"></script>
+    </head>
+    <body>
+        <nav class='col p-3 d-flex align-items-center justify-content-center'>
+            <a href='/home'>
+                <h2 class='my-0 mx-2 d-inline'>
+                    <i class="fab fa-github pink"></i>
+                </h2>
+            </a>
+            <a href='/home' class='mx-2 font-weight-bold text-white'>Home</a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle font-weight-bold text-white p-0 mx-2" id="dropdownMenuOffset" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" data-offset="-45,10">My Stuff</a>
+                <div class="dropdown-menu bg-black" aria-labelledby="dropdownMenuOffset">
+                    <a href='/profile/{{ request.session.username }}' class='dropdown-item font-weight-bold text-white'>Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a href='/my_questions' class='dropdown-item font-weight-bold text-white'>Questions</a>
+                    <a href='/my_responses' class='dropdown-item font-weight-bold text-white'>Answers</a>
+                </div>
+            </div>
+            <form action='/search_bar' method='post' class='col-sm-5 mx-2 p-0'>
+                {% csrf_token %}
+                <div class='row m-0 p-0'>
+                    <input type='text' name='word' class='col py-1 px-3 mr-2 round border' placeholder="🔍 Search">
+                    <button class='btn bg-light col-sm-2'>Search</button>
+                </div>
+            </form>
+            <a href='/logout' class='mx-2 font-weight-bold text-white'>Logout</a>
+        </nav>
+        <div class='bg-light p-4'>
+            <h5 class='col-sm-8 mx-auto my-0 p-0 text-secondary'>Search results for '{{ word }}'</h5>
+            {% for question in questions %}
+            <div class='col-sm-8 mx-auto my-3 p-0 bg-white border shadow-sm'>
+                <div class='row m-0 px-3 py-2 border-bottom'>
+                    <div class='col p-0 m-0'>
+                        <a href='/profile/{{ question.user.username }}' class='pink'>
+                            <b><i class="fas fa-user-circle"></i> {{ question.user.username }}</b>
+                        </a> asked a question.
+                    </div>
+                    <div class='col p-0 m-0 text-right'>
+                        {{ question.created_at | date:"m/d/Y"  }}
+                    </div>
+                </div>
+                <div class='px-3 py-2'>{{ question.question }}</div>
+                <pre><div class='px-3 py-2 bg-grey'>{{ question.code }}</div></pre>
+                <div class='px-3 py-2 border-bottom'>
+                    <form action='/new_response/{{ question.id }}' method='post' class='d-inline'>
+                        {% csrf_token %}
+                        <button class='btn-clear' id='respond' ref='{{ question.id }}'>
+                            <i class="far fa-comment-dots"></i> Answer
+                        </button>
+                    </form>
+                    <a href='/question/{{ question.id }}' class='mx-2 text-dark'><i class="far fa-newspaper"></i> Responses</a>
+                </div>
+                <div id='{{ question.id }}'></div>
+            </div>
+            {% endfor %}
+        </div>
+        <footer class='px-0 py-4 border-top font-1 d-flex align-items-center justify-content-center'>
+            <small class='mx-1'>
+                • Kim Vy Vo 
+                • San Francisco Bay Area, CA 
+                • kvvo@ucdavis.edu 
+                • <a href='/resume' class='text-dark'><i class="far fa-file mx-1 font-size-1"></i></a>
+                • <a href='https://www.linkedin.com/in/kim-vy-vo-783b4578/' class='text-dark'><i class="fab fa-linkedin-in mx-1 font-size-1"></i></a>
+                • <a href='https://github.com/kimvyvo' class='text-dark'><i class="fab fa-github mx-1 font-size-1"></i></a> •
+            </small>
+        </footer>
+    </body>
+</html>

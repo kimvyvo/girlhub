@@ -1,0 +1,29 @@
+<h5 class='text-secondary mb-3'>{{ profile.username }}'s Answers</h5>
+{% for response in responses %}
+<div class='mb-3 border shadow-sm bg-white'>
+    <div class='row m-0 px-3 py-2'>
+        <div class='col m-0 p-0'>
+            {{ response.content }}
+        </div> 
+        <div class='col m-0 p-0 text-right'>{{ response.created_at | date:"m/d/Y" }}</div>
+    </div>
+    <pre><div class='px-3 py-2 bg-grey'>{{ response.code }}</div></pre>
+    <div class='m-3 border'>
+        <div class='row m-0 px-3 py-2 border-bottom'>
+            <div class='col m-0 p-0'>
+                <a href='/profile/{{ response.question.user.username }}' class='pink'><b><i class="fas fa-user-circle"></i> {{ response.question.user.username }}</b></a>'s question.
+            </div>
+            <div class='col m-0 p-0 text-right'>
+                    {{ response.question.created_at | date:"m/d/Y" }}
+            </div>
+        </div>
+        <div class='px-3 py-2'>
+                {{ response.question.question }}
+        </div>
+        <pre><div class='px-3 py-2 bg-grey'>{{ response.question.code }}</div></pre>
+        <div class='px-3 py-2'>
+            <a href='/question/{{ response.question.id }}' class='text-dark'><i class="far fa-newspaper"></i> Responses</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
