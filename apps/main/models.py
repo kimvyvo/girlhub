@@ -42,21 +42,21 @@ class User(models.Model):
     objects = UserManager()
 
 class Question(models.Model):
-    user = models.ForeignKey(User, related_name='user_questions')
+    user = models.ForeignKey(User, related_name='user_questions', on_delete=models.DO_NOTHING)
     question = models.TextField()
     code = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Response(models.Model):
-    user = models.ForeignKey(User, related_name='user_responses')
-    question = models.ForeignKey(Question, related_name='question_responses')
+    user = models.ForeignKey(User, related_name='user_responses', on_delete=models.DO_NOTHING)
+    question = models.ForeignKey(Question, related_name='question_responses', on_delete=models.DO_NOTHING)
     content = models.TextField()
     code = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Followship(models.Model):
-    follower = models.ForeignKey(User, related_name="following")
-    followee = models.ForeignKey(User, related_name="followed")
+    follower = models.ForeignKey(User, related_name="following", on_delete=models.DO_NOTHING)
+    followee = models.ForeignKey(User, related_name="followed", on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
