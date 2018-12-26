@@ -6,12 +6,13 @@
         <meta charset="utf-8">
         <meta name="description" content="Uniting girls through coding!" >
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         {% load static %}
         <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link rel="icon" href="/static/main/img/favicon.png" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="{% static 'main/js/script.js' %}"></script>
         <script>
             $(document).ready(function(){
@@ -32,7 +33,7 @@
     </head>
     <body class='bg-dark'>
         <nav class='col p-3 d-flex align-items-center justify-content-center'>
-            <h2 class='my-0 mx-2 d-inline'><i class="fab fa-github pink"></i></h2>
+            <h2 class='my-0 mx-2 d-inline'><i class="fab fa-github text-pink"></i></h2>
             <button id='sign-in' class='mx-2 font-weight-bold text-white btn-clear'>Sign-In </button> 
             <span class='text-secondary'>or</span>
             <button id='sign-up' class='mx-2 font-weight-bold text-white btn-clear'>Sign-Up</button>
@@ -40,7 +41,7 @@
         <div id='visual' class='d-flex align-items-center justify-content-center'>
             <div class='row m-0 p-0'>
                 <div class='col text-center'>
-                    <img id='cat' src='https://orig00.deviantart.net/f753/f/2015/181/0/0/00e6af0b6de7c7edfa8e966017eb0933-d8zflh6.gif'>
+                    <img id='cat' src='/static/main/img/cat.gif'>
                 </div>
                 <div class='col px-5 text-light'>
                     <h1 id='girlhub' class='text-light font-weight-bold font-1'></h1>
@@ -71,7 +72,7 @@
                             <label class='col p-0 m-0'>Password</label>
                             <input id='log_password' type='password' name='password' value='' class='col mb-3 p-2'>
                             <p id='log_errors' class='text-danger text-center'></p>
-                            <button id='check_login' class='btn pink col p-4 mb-3'><i class="fab fa-github pink"></i> Sign In</button>
+                            <button id='check_login' class='btn text-pink col p-4 mb-3'><i class="fab fa-github text-pink"></i> Sign In</button>
                         </form>
                     </div>
                     <small id='log_reg'>Don't have an account? Register <button id='register' class='btn-clear text-danger'>here</button>.</small>
@@ -82,10 +83,10 @@
             <small class='mx-1'>
                 • Kim Vy Vo 
                 • San Francisco Bay Area, CA 
-                • kvvo@ucdavis.edu 
-                • <a href='/resume' class='text-light'><i class="far fa-file mx-1 font-size-1"></i></a>
+                • <a href='http://kimvyvo.com' class='text-light'><i class="fas fa-desktop mx-1 font-size-1"></i></a>
+                • <a href='https://www.github.com/kimvyvo' class='text-light'><i class="fab fa-github mx-1 font-size-1"></i></a>
                 • <a href='https://www.linkedin.com/in/kim-vy-vo-783b4578/' class='text-light'><i class="fab fa-linkedin-in mx-1 font-size-1"></i></a>
-                • <a href='https://github.com/kimvyvo' class='text-light'><i class="fab fa-github mx-1 font-size-1"></i></a> •
+                • <a href='mailto:kvvo@ucdavis.edu' class='text-light'><i class="fas fa-envelope mx-1 font-size-1"></i></a> •
             </small>
         </footer>
     </body>
